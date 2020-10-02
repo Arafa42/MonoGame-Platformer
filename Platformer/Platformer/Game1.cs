@@ -19,6 +19,10 @@ namespace Platformer
         RenderTarget2D MainTarget;
         Texture2D far_background, mid_background, tiles_image;
         static public Vector2 background_pos;
+        static public string LEVEL_NAME = @"Content\\lev1.txt";
+        static public string BACKUP_NAME = @"Content\\backup.txt";
+        enum GameState {edit, play, game_over, menu, load_level}
+        GameState gameState = GameState.edit;
 
 
 
