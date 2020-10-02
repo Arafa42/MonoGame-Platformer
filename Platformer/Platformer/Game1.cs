@@ -17,7 +17,8 @@ namespace Platformer
         static public Vector2 screen_center;
         Rectangle screenRect, desktopRect;
         RenderTarget2D MainTarget;
-
+        Texture2D far_background, mid_background, tiles_image;
+        static public Vector2 background_pos;
 
 
 
@@ -58,18 +59,33 @@ namespace Platformer
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            far_background = Content.Load<Texture2D>("Images/background_stars");
+            mid_background = Content.Load<Texture2D>("Images/mid_background");
+            tiles_image = Content.Load<Texture2D>("Images/tiles1");
+
         }
 
         protected override void Update(GameTime gameTime)
         {
+            //EXIT
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             
             // TODO: Add your update logic here
             
+            //EXIT
             inp.Update();
             if (inp.Keypress(Keys.Escape)) { Exit(); }
-            
+
+            //TEST INPUT PARALLAX
+            //if (inp.Keydown(Keys.Left)) { background_pos.X++; }
+            //if (inp.Keydown(Keys.Right)) { background_pos.X--; }
+            //if (inp.Keydown(Keys.Up)) { background_pos.Y++; }
+            //if (inp.Keydown(Keys.Down)) { background_pos.Y--; }
+
+
+
+
             base.Update(gameTime);
         }
 
@@ -78,6 +94,23 @@ namespace Platformer
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            GraphicsDevice.SetRenderTarget(MainTarget);
+
+            //GELAAGDE BACKGROUND
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap);
+            _spriteBatch.Draw(far_background, screenRect, new Rectangle((int)(-background_pos.X * 0.5f), 0, far_background.Width, far_background.Height), Color.White);
+            _spriteBatch.End();
+
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, SamplerState.LinearWrap);
+            _spriteBatch.Draw(mid_background, screenRect, new Rectangle((int)(-background_pos.X), (int)-background_pos.Y, mid_background.Width, mid_background.Height),Color.White);
+            _spriteBatch.End();
+
+            GraphicsDevice.SetRenderTarget(null);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap,DepthStencilState.None,RasterizerState.CullNone);
+            _spriteBatch.Draw(MainTarget, desktopRect, Color.White);
+            _spriteBatch.End();
+
+
 
             base.Draw(gameTime);
         }

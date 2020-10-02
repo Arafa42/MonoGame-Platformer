@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arafa\\OneDrive\\Bureaublad\\MONOGAME\\Platformer\\Platformer\\Platformer.csproj": {}
+    "C:\\Users\\arafa\\OneDrive\\Documenten\\GitHub\\MonoGame-Platformer\\Platformer\\Platformer\\Platformer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arafa\\OneDrive\\Bureaublad\\MONOGAME\\Platformer\\Platformer\\Platformer.csproj": {
+    "C:\\Users\\arafa\\OneDrive\\Documenten\\GitHub\\MonoGame-Platformer\\Platformer\\Platformer\\Platformer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arafa\\OneDrive\\Bureaublad\\MONOGAME\\Platformer\\Platformer\\Platformer.csproj",
+        "projectUniqueName": "C:\\Users\\arafa\\OneDrive\\Documenten\\GitHub\\MonoGame-Platformer\\Platformer\\Platformer\\Platformer.csproj",
         "projectName": "Platformer",
-        "projectPath": "C:\\Users\\arafa\\OneDrive\\Bureaublad\\MONOGAME\\Platformer\\Platformer\\Platformer.csproj",
+        "projectPath": "C:\\Users\\arafa\\OneDrive\\Documenten\\GitHub\\MonoGame-Platformer\\Platformer\\Platformer\\Platformer.csproj",
         "packagesPath": "C:\\Users\\arafa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arafa\\OneDrive\\Bureaublad\\MONOGAME\\Platformer\\Platformer\\obj\\",
+        "outputPath": "C:\\Users\\arafa\\OneDrive\\Documenten\\GitHub\\MonoGame-Platformer\\Platformer\\Platformer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
