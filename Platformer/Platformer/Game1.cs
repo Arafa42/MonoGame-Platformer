@@ -25,7 +25,6 @@ namespace Platformer
         GameState gameState = GameState.edit;
 
 
-
         public Game1()
         {
             int initial_screen_width = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width - 10;
@@ -61,12 +60,10 @@ namespace Platformer
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
             far_background = Content.Load<Texture2D>("Images/background_stars");
             mid_background = Content.Load<Texture2D>("Images/mid_background");
             tiles_image = Content.Load<Texture2D>("Images/tiles1");
-
         }
 
         protected override void Update(GameTime gameTime)
@@ -76,7 +73,7 @@ namespace Platformer
                 Exit();
             
             // TODO: Add your update logic here
-            
+           
             //EXIT
             inp.Update();
             if (inp.Keypress(Keys.Escape)) { Exit(); }
@@ -86,9 +83,6 @@ namespace Platformer
             //if (inp.Keydown(Keys.Right)) { background_pos.X--; }
             //if (inp.Keydown(Keys.Up)) { background_pos.Y++; }
             //if (inp.Keydown(Keys.Down)) { background_pos.Y--; }
-
-
-
 
             base.Update(gameTime);
         }
@@ -113,7 +107,6 @@ namespace Platformer
             _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Opaque, SamplerState.LinearWrap,DepthStencilState.None,RasterizerState.CullNone);
             _spriteBatch.Draw(MainTarget, desktopRect, Color.White);
             _spriteBatch.End();
-
 
 
             base.Draw(gameTime);

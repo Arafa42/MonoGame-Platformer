@@ -6,9 +6,15 @@ using System.Text;
 
 namespace Platformer.Map_Related_Stuff
 {
+    class StartData
+    {
+        public int x, y;
+        public StartData(int X, int Y) { x = X; y = Y;}
+    }
+
 
     public enum TileType {empty, solid, reflector, spring, platform, spikes}
-
+    
     class Tile
     {
 
@@ -36,7 +42,6 @@ namespace Platformer.Map_Related_Stuff
 
         public void Clear()
         {
-
             index = 0;
             type = TileType.empty;
             scale = Vector2.One;
@@ -47,12 +52,23 @@ namespace Platformer.Map_Related_Stuff
             is_solid = false;
             event_active = false;
             monster_start = MonsterType.None;
-
-
-
         }
+    }
 
 
-
+    class ProcessedTile
+    {
+        public Vector2 pos;
+        public Vector2 scale;
+        public float rot;
+        public Rectangle rect;
+        
+        public void Add(Vector2 position, Rectangle srcRect, float rotation, Vector2 Size)
+        {
+            pos = position;
+            rect = srcRect;
+            rot = rotation;
+            scale = Size;
+        }
     }
 }
